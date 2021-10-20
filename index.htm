@@ -1,10 +1,12 @@
-<h1>Welcome to Goldhill Coding with Paul and Noah </h1>
+<h1>Bond energy calculator </h1>
 
 <p>We will learn HTML, CSS and JavaScript code</p>
 <p>You can share code online with instant real-time SyncFiddle code editor.</p>
 <p>Push <strong>Calculate</strong> button to draw HTML/CSS and execute script.</p>
+<p>Don't put negative numbers.</p>
+<p>How many bonds do you want?<input id='bondnumberinput' type="number" value=3 min=1></p>
 
-<p>How many bonds do you want?<input id='2' min="-1" type="number" value=3></p>
+
 
 <button onclick='calculate()'> calculate </button>
 
@@ -13,22 +15,27 @@
 <script>
 
 function calculate () {
-  var bondEnergy = 685;
-  var numberOfBonds = document.getElementById('2').value;
-  var finalEnergy;
-  // var signOfNumber = Math.sign(numberOfBonds)
-
-  if (numberOfBonds < 1) { 
-    alert("negative numbers are not allowed");
-    numberOfBonds = numberOfBonds *  Math.sign(numberOfBonds); 
-    document.getElementById('2').value = numberOfBonds;
+  var bondEnergy=685 ;
+  var numberOfBonds= document.getElementById('bondnumberinput').value ;
+  var numberIsNegative=   numberOfBonds<0;
+  var finalEnergy ; 
+  
+  
+  if(numberIsNegative){ 
+    numberOfBonds=3 ;
+    document.getElementById('bondnumberinput').value=numberOfBonds ;  
+    
+    alert("The number needs to be positive.") ;
   }
+   
   
-  finalEnergy  = bondEnergy * numberOfBonds;  
   
-	console.log("final Energy Is " + finalEnergy);
+  finalEnergy=bondEnergy*numberOfBonds ;
   
-  document.getElementById('1').innerHTML = finalEnergy;
+  
+  console.log("final Energy Is " + finalEnergy) ;
+  
+  document.getElementById('1').innerHTML = finalEnergy ;
 }
 
 </script>
