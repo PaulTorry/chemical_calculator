@@ -1,17 +1,26 @@
-<h1>Welcome to Goldhill Coding with Paul </h1>
 
+<h1>Welcome to Goldhill Coding with Paul and Noah </h1>
+ 
 <p>We will learn HTML, CSS and JavaScript code</p>
 <p>You can share code online with instant real-time SyncFiddle code editor.</p>
 <p>Push <strong>Calculate</strong> button to draw HTML/CSS and execute script.</p>
-
-<button onclick='calculate()'> Calculate </button>
-
-
+<p>How many bonds do you want?<input id='2' type="number" value=3></p>
+<button onclick='calculate()'> calculate </button>
+ 
+<p> The final energy is <strong id='1'> unknown </strong> </p>
+ 
 <script>
-
+ 
 function calculate () {
-	console.log("calculate was pressed")
+var bondEnergy=685 ;
+var numberOfBonds=document.getElementById('2').value ;
+var finalEnergy=bondEnergy*numberOfBonds  
+  
+	console.log("final Energy Is " + finalEnergy)
+  
+  document.getElementById('1').innerHTML = finalEnergy
 }
-
+ 
 </script>
+
 
