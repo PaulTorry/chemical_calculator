@@ -4,41 +4,47 @@
 <p>You can share code online with instant real-time SyncFiddle code editor.</p>
 <p>Push <strong>Calculate</strong> button to draw HTML/CSS and execute script.</p>
 <p>Don't put negative numbers.</p>
+<p>What bond type do you want?</p>
+
+<select id='bondtype'> 
+  <option value='hydrogenoxygen'> H-O</option>
+  <option value='carbonoxygen'> C-O</option> 
+</select> 
+
 <p>How many bonds do you want?<input id='bondnumberinput' type="number" value=3 min=1></p>
-
-
 
 <button onclick='calculate()'> calculate </button>
 
-<p> The final energy is <strong id='1'> unknown </strong> </p>
+<p> The final energy is <strong id='finalEnergy'> unknown </strong> </p>
 
 <script>
 
 function calculate () {
-  var bondEnergy=685 ;
-  var numberOfBonds= document.getElementById('bondnumberinput').value ;
-  var numberIsNegative=   numberOfBonds<0;
+  var bondEnergy ;
+  var numberOfBonds = document.getElementById('bondnumberinput').value ;
+  var typeOfBond = document.getElementById('bondtype').value ;
   var finalEnergy ; 
   
-  
-  if(numberIsNegative){ 
-    numberOfBonds=3 ;
-    document.getElementById('bondnumberinput').value=numberOfBonds ;  
-    
+  if( numberOfBonds < 0 ){ 
+    numberOfBonds = 3 ;
+    document.getElementById('bondnumberinput').value = numberOfBonds ;  
     alert("The number needs to be positive.") ;
   }
    
-  
+  if( typeOfBond=='hydrogenoxygen') {
+    bondEnergy=413 ;  
+  }  
+  if( typeOfBond=='carbonoxygen') {
+    bondEnergy=685 ;   
+  }
   
   finalEnergy=bondEnergy*numberOfBonds ;
-  
-  
+  console.log("bond Type Is " + typeOfBond) ;
   console.log("final Energy Is " + finalEnergy) ;
+  document.getElementById('finalEnergy').innerHTML = finalEnergy ;
+} 
   
-  document.getElementById('1').innerHTML = finalEnergy ;
-}
-
+  
 </script>
-
 
 
